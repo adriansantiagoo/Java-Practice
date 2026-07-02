@@ -8,6 +8,8 @@ public class Main {
         dll.insertFirst(2);
         dll.insertFirst(5);
         dll.insertFirst(7);
+        dll.insertLast(99);
+        dll.insert(7, 67);
         dll.display();
     }
 }
