@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Manager {
     private ArrayList<Task> list = new ArrayList<>();
 
+    public ArrayList<Task> getList(){
+        return new ArrayList<>(this.list);
+    }
+
     public boolean containsTask(Task task){
         for (Task currentTask : this.list){
             if (task.getId() == currentTask.getId()) return true;
