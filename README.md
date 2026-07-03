@@ -10,7 +10,7 @@ This repository contains my daily practice exercises and solutions for mastering
 ## 📁 Project Structure
 The project is organized into packages inside the `src/` directory, with each package focusing on a specific topic:
 
-*   `src/ArrayLists/` — Dynamic arrays, basic CRUD operations, and sorting lists.
+*   `src/Collections/` — Dynamic arrays, basic CRUD operations, and sorting lists.
 *   `src/DataStructures/` — Custom implementations of Stacks, Queues, and Linked Lists.
 *   `src/OOP_concepts/` — Inheritance, Polymorphism, Abstraction, and Encapsulation exercises.
 *   `src/ProgrammingLogic/` — Exercises to practice my logic
@@ -29,7 +29,7 @@ To run these exercises locally on your machine:
 
 ## 📈 Learning Progress
 - [x] Basic Arrays & Loops
-- [x] ArrayLists & Collections
+- [x] Collections & Collections
 - [x] Object-Oriented Programming Fundamentals
 - [\] Custom Data Structures (In Progress)
 - [ ] Recursion & Algorithms (Planned)

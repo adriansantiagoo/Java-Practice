@@ -1,4 +1,4 @@
-package ArrayLists.FirstTest_system;
+package Collections.FirstTest_system;
 
 import java.util.ArrayList;
 import java.util.Scanner;

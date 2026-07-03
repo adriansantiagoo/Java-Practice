@@ -1,4 +1,4 @@
-package ArrayLists.CourseManagement_system;
+package Collections.CourseManagement_system;
 
 import java.util.ArrayList;
 

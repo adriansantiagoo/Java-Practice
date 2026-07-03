@@ -1,4 +1,4 @@
-package ArrayLists.ShipmentTracker_system;
+package Collections.ShipmentTracker_system;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package ArrayLists.GradeTracker_system;
+package Collections.GradeTracker_system;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package ArrayLists.ShipmentTracker_system;
+package Collections.ShipmentTracker_system;
 
 public class Shipment {
     private int id;
