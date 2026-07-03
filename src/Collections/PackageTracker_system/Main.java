@@ -33,5 +33,7 @@ public class Main {
         warehouse.removePackage(103);
         warehouse.removePackage(103);
         System.out.println();
+
+        warehouse.printPackagesByCity("New York");
     }
 }

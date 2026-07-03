@@ -30,4 +30,12 @@ public class LogisticsSystem {
         packageRegistry.remove(code);
         System.out.println("Package removed.");
     }
+
+    public void printPackagesByCity(String city) {
+        for (Package p : packageRegistry.values()){
+            if (p.getDestinationCity().equals(city)) {
+                System.out.println(p);
+            }
+        }
+    }
 }
