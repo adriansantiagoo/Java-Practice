@@ -7,11 +7,13 @@ public class Main {
         Package p1 = new Package(101, 2.5, "New York");
         Package p2 = new Package(102, 5.0, "Los Angeles");
         Package p3 = new Package(103, 1.2, "Chicago");
+        Package p4 = new Package(104, 10.4, "New York");
 
         // adding packages
         warehouse.addPackage(p1);
         warehouse.addPackage(p2);
         warehouse.addPackage(p3);
+        warehouse.addPackage(p4);
         System.out.println();
 
         // adding a duplicate package
@@ -29,10 +31,14 @@ public class Main {
         System.out.println("Looking for 999: " + missingPackage);
         System.out.println();
 
-        // removing a package twice times
+        // removing a package two times
         warehouse.removePackage(103);
         warehouse.removePackage(103);
         System.out.println();
+
+        warehouse.printPackagesByCity("New York");
+
+        warehouse.removePackage(101);
 
         warehouse.printPackagesByCity("New York");
     }
