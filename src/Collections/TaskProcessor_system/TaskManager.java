@@ -1,16 +1,20 @@
 package Collections.TaskProcessor_system;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class TaskManager {
     Queue<Task> taskQueue = new PriorityQueue<>();
     Stack<Task> undoTask = new Stack<>();
     Stack<Task> redoTask = new Stack<>();
     Stack<Task> failedTasks = new Stack<>();
+    ArrayList<Task> globalAuditLog = new ArrayList<>();
+
+    private final int maxHistoryCapacity;
     private Task currentTask;
+
+    public TaskManager(int maxHistoryCapacity) {
+        this.maxHistoryCapacity = maxHistoryCapacity;
+    }
 
     public void addTask(Task task){
         if (!redoTask.isEmpty()){
@@ -21,27 +25,27 @@ public class TaskManager {
 
     public void redoTask(){
         if (redoTask.isEmpty()) return;
+
         Task t = redoTask.pop();
-        t.setStatus(TaskStatus.DONE);
-        undoTask.push(t);
-        currentTask = t;
+        processCompletedTask(t);
     }
 
     public void undoTask(){
         if (undoTask.isEmpty()) return;
+
         Task t = undoTask.pop();
         t.setStatus(TaskStatus.TODO);
         redoTask.push(t);
         currentTask = t;
+        globalAuditLog.remove(t);
+
     }
 
     public void runNextTask(){
         if (taskQueue.isEmpty()) return;
 
         Task t = taskQueue.poll();
-        t.setStatus(TaskStatus.DONE);
-        undoTask.push(t);
-        currentTask = t;
+        processCompletedTask(t);
     }
 
     public void failCurrentTask(){
@@ -63,4 +67,23 @@ public class TaskManager {
         Task t = failedTasks.pop();
         addTask(t);
     }
+
+    private void processCompletedTask(Task t) {
+        t.setStatus(TaskStatus.DONE);
+
+        if (undoTask.size() >= maxHistoryCapacity) {
+            undoTask.removeFirst();
+        }
+
+        undoTask.push(t);
+        globalAuditLog.add(t);
+        currentTask = t;
+    }
+
+    public Queue<Task> getTaskQueue() { return taskQueue; }
+    public Stack<Task> getUndoTask() { return undoTask; }
+    public Stack<Task> getRedoTask() { return redoTask; }
+    public Stack<Task> getFailedTasks() { return failedTasks; }
+    public ArrayList<Task> getGlobalAuditLog() { return globalAuditLog; }
+    public Task getCurrentTask() { return currentTask; }
 }
