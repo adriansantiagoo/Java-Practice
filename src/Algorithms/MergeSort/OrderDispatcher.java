@@ -48,11 +48,15 @@ public class OrderDispatcher {
         }
 
         while (i <= mid) {
-            temp[k++] = arr[i++];
+            temp[k] = arr[i];
+            i++;
+            k++;
         }
 
         while (j <= right) {
-            temp[k++] = arr[j++];
+            temp[k] = arr[j];
+            j++;
+            k++;
         }
 
         for (int x = 0; x < temp.length; x++) {
